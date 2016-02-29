@@ -13,7 +13,19 @@ public class LinkedList {
 
   // appends the specified element to the end of this list.
 	public void add(int data) {
-
+		Node temp = new Node(data);
+    if (head != null) {
+      Node current = head;
+  		// starting at the head node, crawl to the end of the list
+  		while(current.getNext() != null) {
+  			current = current.getNext();
+  		}
+  		// the last node's "next" reference set to our new node
+  		current.setNext(temp);
+    } else {
+      head = temp;
+    }
+    listCount++;// increment the number of elements variable
 	}
 
   // inserts the specified element at the specified position in this list.
@@ -23,7 +35,17 @@ public class LinkedList {
 
   // returns the element at the specified position in this list.
 	public int get(int index) {
-		return 0;
+		if (index<=0){
+			return 0;
+		}
+		Node current = head.getNext();
+		for(int i=1; i<index; i++){
+			if (current.getNext()== null){
+				return 0;
+			}
+			current = current.getNext();
+		}
+		return current.getData();
 	}
 
   // removes the element at the specified position in this list.
