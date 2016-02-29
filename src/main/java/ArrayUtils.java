@@ -2,12 +2,21 @@ package main;
 
 public class ArrayUtils {
 
-  public int[] reverse(int[] array) {
-    return array;
+  public static int[] reverse(int[] array) {
+    int[] tempArray = new int[array.length];
+    for (int i=0;i<array.length; i++){
+      tempArray[i]=array[array.length-1-i];
+    }
+    return tempArray;
   };
 
-  public int[] push(int[] array, int num) {
-    return array;
+  public static int[] push(int[] array, int num) {
+    int[] tempArray = new int[array.length+1];
+    for (int i=0; i<array.length; i++){
+      tempArray[i]=array[i];
+    }
+    tempArray[array.length]= num;
+    return tempArray;
   };
 
   public static void print(int[] array) {
